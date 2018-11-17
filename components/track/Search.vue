@@ -8,12 +8,13 @@
         class="input" 
         placeholder="请输入官网名称"
       >
-      <button 
+      <el-button 
+        @click="search" 
+        type="primary"
         class="btn" 
-        @click="search"
+        icon="el-icon-search"
       >
-        搜索
-      </button>
+      </el-button>
     </div>
   </div>
 </template>
@@ -38,8 +39,11 @@ export default {
   methods: {
     search() {
       let keyword = this.keyword
-      if(!keyword) return
-      this.searchSite(keyword)  
+      if (!keyword) {
+        this.$emit('search', [])
+      } else {
+        this.searchSite(keyword)
+      }
     },
 
     searchSite(keyword) {
@@ -95,8 +99,7 @@ export default {
 
 .search .btn {
   margin-left: 0.5rem;
+  padding: 0.5rem; 
   height: 2rem;
-  border: 0;
-  border-radius: 0.5rem;
 }
 </style>

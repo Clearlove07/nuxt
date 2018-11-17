@@ -2,7 +2,7 @@
   <section class="container">
     <div>
       <Search @search="searchHandle" />
-      <List :list="searchResult" />
+      <List :list="list" />
     </div>
   </section>
 </template>
@@ -22,7 +22,6 @@ export default {
   data() {
     return {
       list: [],
-      searchResult: [],
       message: 'test'
     }
   },
